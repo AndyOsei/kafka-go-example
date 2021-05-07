@@ -37,14 +37,12 @@ services:
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
   producer:
-    container_name: producer
     build:
       context: .
       dockerfile: ./producer/Dockerfile
     depends_on:
       - kafka
   consumer:
-    container_name: consumer
     build:
       context: .
       dockerfile: ./consumer/Dockerfile

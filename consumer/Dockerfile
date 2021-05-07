@@ -1,11 +1,11 @@
 FROM dependencies AS builder
-WORKDIR /app
-COPY ./consumer/ pkg ./kafka.config ./
-RUN ls
-RUN  go build -o consumer -ldflags '-linkmode external -w -extldflags "-static"' .
+WORKDIR /kafka-go-example
+COPY kafka.config ./
+ADD consumer ./consumer
+RUN  go build -o consumer -ldflags '-linkmode external -w -extldflags "-static"' ./consumer
 
 FROM alpine:latest AS production
-COPY --from=builder /app/consumer /app/kafka.config /bin/
+COPY --from=builder /kafka-go-example/consumer/consumer /kafka-go-example/kafka.config /bin/
 RUN ls 
 
 ENTRYPOINT [ "/bin/consumer" ]

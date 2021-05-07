@@ -7,8 +7,9 @@ RUN ./configure --prefix /usr
 RUN make 
 RUN make install
 
-WORKDIR /app
+WORKDIR /kafka-go-example
 ENV GO111MODULE=on
 ENV GOOS=linux
 COPY go.mod go.sum ./
+ADD pkg ./pkg
 RUN go mod download
