@@ -24,7 +24,7 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/andyosei/kafka-go-example/pkg/ccloud"
+	"github.com/AndyOsei/kafka-go-example/pkg/ccloud"
 	"gopkg.in/confluentinc/confluent-kafka-go.v1/kafka"
 )
 
