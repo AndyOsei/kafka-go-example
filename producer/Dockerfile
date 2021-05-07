@@ -1,7 +1,6 @@
 FROM dependencies AS builder
 WORKDIR /app
-COPY ./producer/ .
-COPY ./kafka.config .
+COPY ./producer/ pkg ./kafka.config ./
 RUN go mod download
 RUN  go build -o producer -ldflags '-linkmode external -w -extldflags "-static"' .
 

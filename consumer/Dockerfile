@@ -1,7 +1,7 @@
 FROM dependencies AS builder
 WORKDIR /app
-COPY ./consumer/ .
-COPY ./kafka.config .
+COPY ./consumer/ pkg ./kafka.config ./
+RUN ls
 RUN  go build -o consumer -ldflags '-linkmode external -w -extldflags "-static"' .
 
 FROM alpine:latest AS production

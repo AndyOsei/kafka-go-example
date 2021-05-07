@@ -1,4 +1,4 @@
-module github.com/andyosei/kafka-go-example
+module github.com/AndyOsei/kafka-go-example
 
 go 1.16
 
